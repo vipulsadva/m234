@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="Addweb_News::addweb_news_index" title="News" module="Addweb_News"  sortOrder="20" dependsOnModule="Addweb_News" action="news/news/index" resource="Addweb_News::addweb_news_index"/>
+<!--AddMenu-->
+    </menu>
+</config>

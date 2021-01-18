@@ -1,0 +1,20 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$newscollection = $objectManager->create('Addweb\News\Model\Custom')->getCollection();
+$newscollection->addFieldToFilter('status', 1);
+
+$mediaurl = $objectManager->get('Magento\Store\Model\StoreManagerInterface')->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
+?>
+
+<div class="row">
+			
+	<?php foreach($newscollection as $news){ ?>	
+		<div class="item">
+			<p><b><?php echo 'Titlt:: '.$news['title']; ?></b></p>
+			<p><?php echo 'Description:: '.$news['description']; ?></p>
+			<img class="dimg" src="<?php echo $mediaurl.$news['image']; ?>" alt="<?php echo $news['title']?>" />
+		</div>
+	<?php } ?>
+
+</div>
