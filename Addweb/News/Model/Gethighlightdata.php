@@ -11,13 +11,23 @@ class Gethighlightdata implements Gethighlight
     }
     public function gethighlightdata($id)
     {
-		$customCol = $this->customCollection->addFieldToFilter('id', $id);
-		$customColdata = $customCol->getData();
-		
-		if (empty(@$customColdata)) {
-            $invalid = ["code" => '301', "message" => "ID " . $id . " Not Found On Magento"];
-            return $invalid;
-        }
+		if($id){
+			$customCol = $this->customCollection->addFieldToFilter('id', $id);
+			$customColdata = $customCol->getData();
+			
+			if (empty(@$customColdata)) {
+				$invalid = ["code" => '301', "message" => "ID " . $id . " Not Found On Magento"];
+				return $invalid;
+			}
+		}else{
+			$customCol = $this->customCollection;
+			$customColdata = $customCol->getData();
+			
+			if (empty(@$customColdata)) {
+				$invalid = ["code" => '301', "message" => "ID " . $id . " Not Found On Magento"];
+				return $invalid;
+			}
+		}
         return $customColdata;        
 		
     }
