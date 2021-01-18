@@ -1,3 +1,3 @@
 <?php
-echo 'first teting file for github.....';
+echo 'first teting file for the github.....';
 ?>
